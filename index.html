@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Here</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form class="form" id="submit-form" action="https://script.google.com/macros/s/AKfycbwvdl1ONwMaO4c3esUmjfnOhO4Dy93YGFUCKfO0QO3jtWc7Kdweq5uol-hnbojrgNNy/exec">
+            <h4>SignUp Here</h4>
+            <label for="fname">User name</label>
+            <input type="text" id="fname" name="name" placeholder="Your name..">
+            <br>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your mail id..">
+            <br>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password mandatory..">
+            <br>
+            <label for="contact">Phone</label>
+            <input type="number" id="contact" name="contact" placeholder="Your contact..">
+            <br>
+            <select name="Gender">
+                <option value="default">Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <br>
+            <input class="button" type="Submit">
+        </form>
+    </div>
+    <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbwvdl1ONwMaO4c3esUmjfnOhO4Dy93YGFUCKfO0QO3jtWc7Kdweq5uol-hnbojrgNNy/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
+</body>
+</html>
